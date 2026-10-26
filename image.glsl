@@ -20,6 +20,8 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     float a = length(fragCoord - ripple) / iResolution.y;
     col *= smoothstep(0.45, 0.6, a) * 0.5 + 0.9;
     
+
+    //lfet
     vec2 ok = iMouse.z > 1.7 ? iMouse.xy : 0.3 * iResolution.xy;
     float f = length(fragCoord - ok) / iResolution.y;
     col *= smoothstep(0.35, 0.3, f) * 0.5 + 0.5;
@@ -35,6 +37,25 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     vec2 y = iMouse.z > 2.2 ? iMouse.xy : 0.3 * iResolution.xy;
     float v = length(fragCoord - y) / iResolution.y;
     col *= smoothstep(0.15, 0.1, v) * 0.5 + 0.5;
+
+
+//right
+
+    vec2 hg = iMouse.z > 1.7 ? iMouse.xy : vec2(0.8, 0.2) * iResolution.xy;
+    float l = length(fragCoord - hg) / iResolution.y;
+    col *= smoothstep(0.35, 0.3, l) * 0.5 + 0.5;
+
+    vec2 fl = iMouse.z > 1.7 ? iMouse.xy : 0.7 * iResolution.xy;
+    float n = length(fragCoord - fl) / iResolution.y;
+    col *= smoothstep(0.35, 0.3, n) * 0.5 + 0.5;
+
+    vec2 ps = iMouse.z > 1.7 ? iMouse.xy : 0.7 * iResolution.xy;
+    float i = length(fragCoord - ps) / iResolution.y;
+    col *= smoothstep(0.15, 0.1, i) * 0.5 + 0.5;
+
+    vec2 nda = iMouse.z > 2.2 ? iMouse.xy : 0.3 * iResolution.xy;
+    float r = length(fragCoord - nda) / iResolution.y;
+    col *= smoothstep(0.15, 0.1, r) * 0.5 + 0.5;
 
 
 
