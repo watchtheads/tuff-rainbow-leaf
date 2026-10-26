@@ -11,12 +11,23 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     vec3 col = 1.5 + 1.5 * cos(iTime + uv.xyx + vec3(0.0, 2.0, 4.0));
 
     // A soft circle in the middle that follows the mouse while you hold a button.
-    vec2 centre = iMouse.z > 0.0 ? iMouse.xy : 0.5 * iResolution.xy;
+    vec2 centre = iMouse.z > 1.7 ? iMouse.xy : 0.5 * iResolution.xy;
     float d = length(fragCoord - centre) / iResolution.y;
     col *= smoothstep(0.35, 0.3, d) * 0.5 + 0.5;
-    vec2 ripple = iMouse.z > 0.0 ? iMouse.xy : 0.5 * iResolution.xy;
+    
+    //anotherone
+    vec2 ripple = iMouse.z > 0.4 ? iMouse.xy : 0.7 * iResolution.xy;
     float a = length(fragCoord - centre) / iResolution.y;
+    col *= smoothstep(0.45, 0.6, d) * 0.1 + 0.7;
+    
+    vec2 centre = iMouse.z > 1.7 ? iMouse.xy : 0.5 * iResolution.xy;
+    float d = length(fragCoord - centre) / iResolution.y;
     col *= smoothstep(0.35, 0.3, d) * 0.5 + 0.5;
 
+    vec2 centre = iMouse.z > 1.7 ? iMouse.xy : 0.5 * iResolution.xy;
+    float d = length(fragCoord - centre) / iResolution.y;
+    col *= smoothstep(0.35, 0.3, d) * 0.5 + 0.5;
+
+    
     fragColor = vec4(col, 1.0);
 }
