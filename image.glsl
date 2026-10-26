@@ -18,15 +18,15 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     //anotherone
     vec2 ripple = iMouse.z > 0.4 ? iMouse.xy : 0.4 * iResolution.xy;
     float a = length(fragCoord - ripple) / iResolution.y;
-    col *= smoothstep(0.45, 0.6, d) * 0.5 + 0.9;
+    col *= smoothstep(0.45, 0.6, a) * 0.5 + 0.9;
     
     vec2 ok = iMouse.z > 1.7 ? iMouse.xy : 0.3 * iResolution.xy;
     float f = length(fragCoord - ok) / iResolution.y;
-    col *= smoothstep(0.35, 0.3, d) * 0.5 + 0.5;
+    col *= smoothstep(0.35, 0.3, f) * 0.5 + 0.5;
 
-    vec2 no = iMouse.z > 1.9 ? iMouse.xy : 0.2 * iResolution.xy;
+    vec2 no = iMouse.z > 1.9 ? iMouse.xy : 0.7 * iResolution.xy;
     float g = length(fragCoord - no) / iResolution.y;
-    col *= smoothstep(0.35, 0.3, d) * 0.5 + 0.5;
+    col *= smoothstep(0.35, 0.3, g) * 0.5 + 0.5;
 
 
     fragColor = vec4(col, 1.0);
